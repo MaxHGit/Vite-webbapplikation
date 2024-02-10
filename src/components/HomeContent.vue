@@ -48,7 +48,6 @@ export default {
   display: flex;
   flex-direction: column;
 }
-/* Style for images */
 .news-article img.article-image {
   margin-top: 10px; /* Lägger till mellanrum mellan bilden och titeln på artikeln */
 }
