@@ -17,7 +17,6 @@ import { RouterLink, RouterView } from "vue-router";
           <RouterLink to="/about" class="nav-link">About</RouterLink>
         </BNavItem>
       </BNavbarNav>
-      <!-- Right aligned nav items -->
     </BCollapse>
   </BNavbar>
 

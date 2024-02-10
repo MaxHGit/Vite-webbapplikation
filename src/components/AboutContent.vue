@@ -6,4 +6,10 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+h1,
+h2 {
+  text-align: center;
+  padding: 1rem;
+}
+</style>
