@@ -20,6 +20,7 @@ export default {
   <div class="article-container">
     <h1>This is the home page</h1>
     <h2>Headlines</h2>
+    <!-- BootstrapVue grid system som använder v-for för att rendrera ut alla artiklar i APIn -->
     <b-row>
       <b-col
         cols="12"
@@ -29,13 +30,16 @@ export default {
         class="mb-4"
       >
         <div class="news-article">
+          <!-- Textinterpolering med data hämtad från API -->
           <h3>{{ article.title }}</h3>
+          <!-- attributinterpolering för att dynamiskt visa upp bilder som tillhör artikeln, alternativ text för bilden som matchar titeln  -->
           <img
             :src="article.urlToImage"
             :alt="article.title"
             class="article-image"
           />
           <p>{{ article.description }}</p>
+          <!-- Använder attributinterpolering för att länka nyhetsartikelns kort hemsidan i API:n, kommer använda mig av vue router för att fixa så att man kan läsa artiklarna på min sida men fokuserar på kraven först  -->
           <a :href="article.url" target="_blank">Read more</a>
         </div>
       </b-col>
