@@ -23,9 +23,10 @@
         </BNavItem>
         <BNavItem>
           <!-- När knappen klickas på används useThemeStore() för att  -->
-          <BButton variant="primary" @click="useThemeStore().toggleTheme()"
-            >Toggle Dark Mode</BButton
-          >
+          <BButton variant="primary" @click="useThemeStore().toggleTheme()">
+            <span v-if="useThemeStore().isDarkMode">Switch to Light Mode</span>
+            <span v-else>Switch to Dark Mode</span>
+          </BButton>
         </BNavItem>
       </BNavbarNav>
     </BCollapse>
