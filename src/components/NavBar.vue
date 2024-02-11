@@ -7,7 +7,7 @@
 <template>
   <BNavbar toggleable="lg" variant="primary" v-b-color-mode="'dark'">
     <BNavbarBrand
-      ><RouterLink to="/" class="nav-link">Logo</RouterLink></BNavbarBrand
+      ><RouterLink to="/" class="nav-link">News</RouterLink></BNavbarBrand
     >
     <BNavbarToggle target="nav-collapse" />
     <BCollapse id="nav-collapse" is-nav>
@@ -23,7 +23,7 @@
         </BNavItem>
         <BNavItem>
           <!-- När knappen klickas på används useThemeStore() för att  -->
-          <BButton @click="useThemeStore().toggleTheme()"
+          <BButton variant="primary" @click="useThemeStore().toggleTheme()"
             >Toggle Dark Mode</BButton
           >
         </BNavItem>
