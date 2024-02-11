@@ -1,19 +1,19 @@
 <script>
-import { fetchData } from "../services/service.js";
+  import { fetchData } from '../services/service.js'
 
-export default {
-  data() {
-    return {
-      articles: [],
-    };
-  },
-  created() {
-    fetchData().then((fetchedData) => {
-      // Hämtar från Axios i service.js, och skriver sedan ut resultatet i "articles"
-      this.articles = fetchedData.articles;
-    });
-  },
-};
+  export default {
+    data() {
+      return {
+        articles: []
+      }
+    },
+    created() {
+      fetchData().then((fetchedData) => {
+        // Hämtar från Axios i service.js, och skriver sedan ut resultatet i "articles"
+        this.articles = fetchedData.articles
+      })
+    }
+  }
 </script>
 
 <template>
@@ -48,21 +48,21 @@ export default {
 </template>
 
 <style scoped>
-.news-article {
-  display: flex;
-  flex-direction: column;
-}
-.news-article img.article-image {
-  margin-top: 10px; /* Lägger till mellanrum mellan bilden och titeln på artikeln */
-}
+  .news-article {
+    display: flex;
+    flex-direction: column;
+  }
+  .news-article img.article-image {
+    margin-top: 10px; /* Lägger till mellanrum mellan bilden och titeln på artikeln */
+  }
 
-.article-container {
-  padding: 0rem 2rem; /* padding på sidorna av nyhetsartiklarnas container, med andra ord lite mellanrum mellan nyhetsartiklarna och hemsidasn kanter */
-}
+  .article-container {
+    padding: 0rem 2rem; /* padding på sidorna av nyhetsartiklarnas container, med andra ord lite mellanrum mellan nyhetsartiklarna och hemsidasn kanter */
+  }
 
-h1,
-h2 {
-  text-align: center;
-  padding: 1rem;
-}
+  h1,
+  h2 {
+    text-align: center;
+    padding: 1rem;
+  }
 </style>
