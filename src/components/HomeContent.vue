@@ -17,30 +17,40 @@
 </script>
 
 <template>
+  <div class="hero">
+    <b-img
+      src="https://picsum.photos/1024/400/?image=41"
+      fluid-grow
+      alt="Header Image"
+    ></b-img>
+  </div>
+
   <div class="article-container">
     <h1>This is the home page</h1>
     <h2>Headlines</h2>
     <!-- BootstrapVue grid system som använder v-for för att rendrera ut alla artiklar i APIn -->
+    <!-- Loopar igenom article. En unik nyckel baserat på artikelns URL (i API:n) tilldelas till alla artiklar,
+         Index används för navigering till ArticleDetails.vue med dynamisk data när man klickar på "Read More" -->
     <b-row>
       <b-col
         cols="12"
         md="4"
-        v-for="article in articles"
+        v-for="(article, index) in articles"
         :key="article.url"
         class="mb-4"
       >
         <div class="news-article">
-          <!-- Textinterpolering med data hämtad från API -->
           <h3>{{ article.title }}</h3>
-          <!-- attributinterpolering för att dynamiskt visa upp bilder som tillhör artikeln, alternativ text för bilden som matchar titeln  -->
           <img
             :src="article.urlToImage"
             :alt="article.title"
             class="article-image"
           />
           <p>{{ article.description }}</p>
-          <!-- Använder attributinterpolering för att länka nyhetsartikelns kort hemsidan i API:n, kommer använda mig av vue router för att fixa så att man kan läsa artiklarna på min sida men fokuserar på kraven först  -->
-          <a :href="article.url" target="_blank">Read more</a>
+          <!-- Vue Router Addressparameter: Read me knappen tar dig dynamiskt till en sida med information om den valda artikeln, index id och index data -->
+          <router-link :to="{ name: 'ArticleDetail', params: { index: index } }"
+            >Read more</router-link
+          >
         </div>
       </b-col>
     </b-row>
