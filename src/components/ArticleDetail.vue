@@ -58,26 +58,54 @@
     margin: 2rem 0; /* Lägger till mellanrum mellan bilden och titeln på artikeln */
     width: 100%;
     height: auto;
-    padding: 0 5rem;
+    padding: 0 15rem;
   }
 
   .article-container {
-    padding: 0rem 2rem; /* padding på sidorna av nyhetsartiklarnas container, med andra ord lite mellanrum mellan nyhetsartiklarna och hemsidasn kanter */
+    padding: 0rem 10rem; /* padding på sidorna av nyhetsartiklarnas container, med andra ord lite mellanrum mellan nyhetsartiklarna och hemsidasn kanter */
   }
 
   .article-content {
-    padding: 0 10%;
+    padding: 0 20rem;
   }
 
   h1,
   h2 {
     text-align: center;
-    padding: 1rem;
+    padding: 2rem 10rem;
+  }
+
+  p,
+  .breadcrumbs {
+    padding: 0 10rem;
   }
 
   @media (max-width: 1250px) {
     .article-image {
       padding: 0;
+    }
+
+    .article-container {
+      padding: 0;
+    }
+
+    .article-content {
+      padding: 0 3rem;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    p {
+      padding: 0 2rem;
+      text-overflow: ellipsis;
+    }
+
+    .breadcrumbs {
+      padding: 0 2rem;
     }
   }
 </style>

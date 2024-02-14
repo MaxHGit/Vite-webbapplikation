@@ -17,47 +17,53 @@
 </script>
 
 <template>
-  <div class="hero">
-    <b-img
-      src="https://picsum.photos/1024/400/?image=41"
-      fluid-grow
-      alt="Header Image"
-    ></b-img>
-  </div>
+  <section class="main">
+    <div class="hero">
+      <b-img
+        src="https://picsum.photos/1024/400/?image=41"
+        fluid-grow
+        alt="Header Image"
+      ></b-img>
+    </div>
 
-  <div class="article-container">
-    <h1>This is the home page</h1>
-    <h2>Headlines</h2>
-    <!-- BootstrapVue grid system som använder v-for för att rendrera ut alla artiklar i APIn -->
-    <!-- Loopar igenom article. En unik nyckel baserat på artikelns URL (i API:n) tilldelas till alla artiklar,
+    <div class="article-container">
+      <h1>This is the home page</h1>
+      <h2>Headlines</h2>
+      <!-- BootstrapVue grid system som använder v-for för att rendrera ut alla artiklar i APIn -->
+      <!-- Loopar igenom article. En unik nyckel baserat på artikelns URL (i API:n) tilldelas till alla artiklar,
          Index används för navigering till ArticleDetails.vue med dynamisk data när man klickar på "Read More" -->
-    <b-row>
-      <b-col
-        cols="12"
-        md="4"
-        v-for="(article, index) in articles"
-        :key="article.url"
-        class="mb-4"
-      >
-        <div class="news-article">
-          <h3>{{ article.title }}</h3>
-          <img
-            :src="article.urlToImage"
-            :alt="article.title"
-            class="article-image"
-          />
-          <p>{{ article.description }}</p>
-          <!-- Vue Router Addressparameter: Read me knappen tar dig dynamiskt till en sida med information om den valda artikeln, index id och index data -->
-          <router-link :to="{ name: 'ArticleDetail', params: { index: index } }"
-            >Read more</router-link
-          >
-        </div>
-      </b-col>
-    </b-row>
-  </div>
+      <b-row>
+        <b-col
+          cols="12"
+          md="4"
+          v-for="(article, index) in articles"
+          :key="article.url"
+          class="mb-4"
+        >
+          <div class="news-article">
+            <h3>{{ article.title }}</h3>
+            <img
+              :src="article.urlToImage"
+              :alt="article.title"
+              class="article-image"
+            />
+            <p>{{ article.description }}</p>
+            <!-- Vue Router Addressparameter: Read me knappen tar dig dynamiskt till en sida med information om den valda artikeln, index id och index data -->
+            <router-link
+              :to="{ name: 'ArticleDetail', params: { index: index } }"
+              >Read more</router-link
+            >
+          </div>
+        </b-col>
+      </b-row>
+    </div>
+  </section>
 </template>
 
 <style scoped>
+  .main {
+    padding: 0 150px;
+  }
   .news-article {
     display: flex;
     flex-direction: column;
@@ -74,5 +80,15 @@
   h2 {
     text-align: center;
     padding: 1rem;
+  }
+
+  p {
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 1250px) {
+    .main {
+      padding: 0;
+    }
   }
 </style>
