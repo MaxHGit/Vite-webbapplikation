@@ -4,19 +4,38 @@
   export default {
     data() {
       return {
-        articles: []
+        articles: [],
+        searchQuery:
+          '' /* När sidan laddas in är searchQuery tom, eftersom att användaren ej matat in något i sökfältet än */
+      }
+    },
+    watch: {
+      searchQuery(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          /*  använder watch för att kolla om searchQuery (sökfältet) har ändrats innan den kallar på funktionen */
+          this.performSearch()
+        }
+      }
+    },
+    methods: {
+      performSearch() {
+        fetchData(this.searchQuery).then((fetchedData) => {
+          this.articles = fetchedData.articles
+        })
       }
     },
     created() {
-      fetchData().then((fetchedData) => {
-        // Hämtar från Axios i service.js, och skriver sedan ut resultatet i "articles"
-        this.articles = fetchedData.articles
-      })
+      this.performSearch()
     }
   }
 </script>
 
 <template>
+  <!-- Searchknappen som använder v-model för data -->
+  <div class="search-bar-container">
+    <b-form-input v-model="searchQuery" placeholder="Search..." />
+  </div>
+
   <section class="main">
     <div class="hero">
       <b-img
