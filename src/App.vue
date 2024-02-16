@@ -1,5 +1,6 @@
 <script setup>
   import NavBar from './components/NavBar.vue'
+  import Footer from './components/FooterComp.vue'
   import { watchEffect } from 'vue'
   import { useThemeStore } from '@/stores/themeStore'
 
@@ -15,6 +16,7 @@
 
 <template>
   <NavBar />
+  <Footer />
 </template>
 
 <style scoped></style>
