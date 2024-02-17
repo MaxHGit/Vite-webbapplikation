@@ -7,8 +7,9 @@
 <template>
   <BNavbar toggleable="lg" v-b-color-mode="'dark'" class="navb">
     <BNavbarBrand
-      ><RouterLink to="/" class="nav-link">News</RouterLink></BNavbarBrand
-    >
+      ><RouterLink to="/" class="nav-link">
+        <img src="./icons/newslogo.png" alt="logo" class="logo" /> </RouterLink
+    ></BNavbarBrand>
     <BNavbarToggle target="nav-collapse" />
     <BCollapse id="nav-collapse" is-nav>
       <BNavbarNav>
@@ -42,6 +43,10 @@
   .dark-mode-button {
     display: flex;
     justify-content: flex-end;
+  }
+
+  .logo {
+    width: 5rem;
   }
 
   @media (max-width: 1006px) {

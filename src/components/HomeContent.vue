@@ -37,17 +37,8 @@
   </div>
 
   <section class="main">
-    <div class="hero">
-      <b-img
-        src="https://picsum.photos/1024/400/?image=41"
-        fluid-grow
-        alt="Header Image"
-      ></b-img>
-    </div>
-
     <div class="article-container">
-      <h1>This is the home page</h1>
-      <h2>Headlines</h2>
+      <h2 v-if="searchQuery === ''">Headlines</h2>
       <!-- BootstrapVue grid system som använder v-for för att rendrera ut alla artiklar i APIn -->
       <!-- Loopar igenom article. En unik nyckel baserat på artikelns URL (i API:n) tilldelas till alla artiklar,
          Index används för navigering till ArticleDetails.vue med dynamisk data när man klickar på "Read More" -->
@@ -103,6 +94,15 @@
 
   p {
     padding-top: 1rem;
+  }
+
+  .hero {
+    padding-bottom: 2rem;
+  }
+
+  .search-bar-container {
+    background-color: #003366;
+    padding: 0.75rem;
   }
 
   @media (max-width: 1250px) {

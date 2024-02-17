@@ -18,5 +18,6 @@
     padding: 4rem;
     color: #fff;
     text-align: center;
+    margin-top: 3rem;
   }
 </style>
