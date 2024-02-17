@@ -36,6 +36,17 @@
     <b-form-input v-model="searchQuery" placeholder="Search..." />
   </div>
 
+  <div class="featured" v-if="articles.length > 0 && searchQuery === ''">
+    <h1>{{ articles[0].title }}</h1>
+    <img
+      :src="articles[0].urlToImage"
+      :alt="articles[0].title"
+      class="article-image"
+    />
+
+    <!-- Vue Router Addressparameter: Read me knappen tar dig dynamiskt till en sida med information om den valda artikeln, index id och index data -->
+  </div>
+
   <section class="main">
     <div class="article-container">
       <h2 v-if="searchQuery === ''">Headlines</h2>
@@ -72,11 +83,22 @@
 
 <style scoped>
   .main {
-    padding: 0 150px;
+    padding: 2rem 150px;
   }
   .news-article {
     display: flex;
     flex-direction: column;
+  }
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.183);
+  }
+
+  .featured img {
+    padding: 0 10rem;
   }
   .news-article img.article-image {
     margin-top: 10px; /* Lägger till mellanrum mellan bilden och titeln på artikeln */
@@ -94,10 +116,6 @@
 
   p {
     padding-top: 1rem;
-  }
-
-  .hero {
-    padding-bottom: 2rem;
   }
 
   .search-bar-container {
