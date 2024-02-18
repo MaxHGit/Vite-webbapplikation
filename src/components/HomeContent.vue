@@ -94,7 +94,7 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.183);
+    background-color: rgba(0, 0, 0, 0.062);
   }
 
   .featured img {
@@ -127,5 +127,12 @@
     .main {
       padding: 0;
     }
+    .featured {
+    display: none;
+  }
+
+  .search-bar-container {
+    margin-bottom: 1rem;
+  }
   }
 </style>
