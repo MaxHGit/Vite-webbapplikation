@@ -46,8 +46,7 @@
     methods: {
       async loadArticle() {
         const data = await fetchData()
-        /* Använde ChatGPT för att göra om this.index från string till int, bas 10 för decimaler */
-        this.article = data.articles[parseInt(this.index, 10)]
+        this.article = data.articles[this.index]
       }
     }
   }

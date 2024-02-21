@@ -1,15 +1,24 @@
 <template>
-  <div class="main-container">
-    <h1 class="text-container">This is the contact page</h1>
+  <div>
+    <!-- FormComponent som lyssnar efter custom eventet "form-submitted" med metoden formSubmitted som värde -->
+    <FormComponent @form-submitted="formSubmitted" />
   </div>
 </template>
 
-<script setup></script>
+<script>
+  import FormComponent from '../components/FormComponent.vue'
 
-<style scoped>
-  h1,
-  h2 {
-    text-align: center;
-    padding: 1rem;
+  export default {
+    components: {
+      FormComponent
+    },
+    /* Skickar meddelande till konsolen, som en notis för admins */
+    methods: {
+      formSubmitted(formData) {
+        console.log(
+          `Nytt meddelande mottaget: ${formData.message}, av ${formData.name} (email: ${formData.email})`
+        )
+      }
+    }
   }
-</style>
+</script>
